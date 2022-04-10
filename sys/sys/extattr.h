@@ -71,7 +71,18 @@ int	extattr_check_cred(struct vnode *vp, int attrnamespace,
 	    struct ucred *cred, struct thread *td, accmode_t accmode);
 
 #else
+#include<sys/_types.h>
 #include <sys/cdefs.h>
+
+#ifndef _SIZE_T_DECLARED
+typedef	__size_t	size_t;
+#define	_SIZE_T_DECLARED
+#endif
+
+#ifndef _SSIZE_T_DECLARED
+typedef	__ssize_t	ssize_t;
+#define	_SSIZE_T_DECLARED
+#endif
 
 struct iovec;
 
